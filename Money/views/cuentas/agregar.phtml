@@ -1,0 +1,47 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="display-4 text-center mb-3">Agregar cuenta</h2>
+		</div>
+	</div>
+	<div class="row">
+	    <div class="col-md-3">
+        </div>
+		<div class="col-md-6">
+			<form action="<?php echo APP_URL."cuentas/agregar"; ?>" method="POST" accept-charset="utf-8">
+	
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Clave</span>
+					</div>
+					<input type="text" name="clave" id="" class="form-control">
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Nombre</span>
+					</div>
+					<input type="text" name="name" id="" class="form-control">
+				</div>
+				
+				</div>
+
+		</div>
+		<div class="col-md-2">
+        </div>	
+		<div class="col-md-12">
+		    
+			<div class="row justify-content-center">
+				<div class="col-md-2"></div>
+				<div class="col-md-3">
+					<button type="submit" class="btn btn-success btn-block">Guardar tarea</button>
+				</div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+				    <a href="<?php echo APP_URL. "cuentas/index"; ?>" class="btn btn-outline-primary mb-3">Regresar</a>
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

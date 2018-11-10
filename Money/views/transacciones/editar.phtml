@@ -1,0 +1,83 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="display-4 text-center mb-3">Editar transaccion</h2>
+		</div>
+	</div>
+	<div class="row">
+	    <div class="col-md-3">
+        </div>
+		<div class="col-md-6">
+			<form action="<?php echo APP_URL."transacciones/editar"; ?>" method="POST" accept-charset="utf-8">
+	
+				
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Cuenta</span>
+					</div>
+					<select name="account_id" class="form-control">
+					<?php 
+					foreach ($this->cuenta as $cuentas) { ?>
+						<option value="<?php echo $cuentas["id"]; ?>">
+							<?php echo $cuentas["name"]; ?></option>	
+					<?php } ?>
+				</select>
+				</div>
+				
+				
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Categoría</span>
+					</div>
+					<select name="category_id" class="form-control">
+					<?php 
+					foreach ($this->categoria as $categorias) { ?>
+						<option value="<?php echo $categorias["id"]; ?>">
+							<?php echo $categorias["name"]; ?></option>	
+					<?php } ?>
+				</select>
+				</div>
+				
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Descripción</span>
+					</div>
+					<textarea name="description" class="form-control"></textarea>
+				</div>
+				
+				
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Fecha</span>
+					</div>
+					<input type="date" name="date" value="<?php echo date("Y-m-d"); ?>" class="form-control">
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Monto</span>
+					</div>
+					<input type="text" name="amount" id="" class="form-control">
+				</div>
+				
+				</div>
+
+		</div>
+		<div class="col-md-2">
+        </div>	
+		<div class="col-md-12">
+		    
+			<div class="row justify-content-center">
+				<div class="col-md-2"></div>
+				<div class="col-md-3">
+					<button type="submit" class="btn btn-success btn-block">Guardar transaccion</button>
+				</div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+				    <a href="<?php echo APP_URL. "transacciones/index"; ?>" class="btn btn-outline-primary mb-3">Regresar</a>
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

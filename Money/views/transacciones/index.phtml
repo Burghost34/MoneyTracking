@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="display-4 text-center">Lista de Transacciones</h2>
+			<a href="<?php echo APP_URL. "transacciones/agregar"; ?>" class="btn btn-outline-success mb-3">Agregar transaccion</a>
+            <a href="<?php echo APP_URL. "cuentas/index"; ?>" class="btn btn-outline-primary mb-3">Regresar</a>
+			<table border="1" class="table table-striped table-dark table-responsive-lg">
+                    <tr>
+                        <th><center>ID</center></th>
+                        <th><center>Cuenta</center></th>
+                        <th><center>Categoría</center></th>
+                        <th><center>Descripción</center></th>
+                        <th><center>Fecha</center></th>
+                        <th><center>Monto</center></th>
+                        <th><center>Acción</center></th>
+                    </tr>
+                    <?php foreach ($this->transaccion as $transaccion): ?>
+                    
+				    <tr>
+                        <td><center><?php echo $transaccion["id"]; ?></center></td>
+
+                        <td><center><?php echo $transaccion["account"]; ?></center></td>
+
+                        <td><center><?php echo $transaccion["category"]; ?></center></td>
+
+                        <td><center><?php echo $transaccion["description"]; ?></center></td>
+
+                        <td><center><?php
+                            $date = date_create($transaccion["date"]);
+                            echo date_format($date, 'd/m/Y');
+                            ?></center>
+                        </td>
+                        
+                    <td> <center><button class="<?php if ($transaccion["amount"] >= 0) echo "btn btn-success"; else echo "btn btn-danger"; ?>">$ <?php echo number_format($transaccion["amount"], 2, '.', ''); ?></button></center></td>
+					   
+                    
+					<td><center><a href="<?php echo APP_URL. "transacciones/editar/". $transaccion["id"]; ?>" class="btn btn-primary mr-3">Editar</a><a href="<?php echo APP_URL. "transacciones/eliminar/". $transaccion["id"]; ?>" class="btn btn-danger mr-3">Eliminar</a></center>
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</table>
+		</div>
+	</div>
+</div>
+
+
